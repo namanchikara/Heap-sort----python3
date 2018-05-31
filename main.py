@@ -3,7 +3,7 @@ def heapify(arr,i,heapsize):
     r = 2*i +1
     largest = -1
 
-    if  (l< heapsize) and (arr[l] > arr[i]):
+    if  (l< heapsize) and (arr[l] > arr[i]):            #why not <=  ?? because of 42 again.
       largest = l
     else:
       largest = i
@@ -23,7 +23,7 @@ def build_max_heap(arr):
 def heapsort(a):
   heapsize = len(a)
   build_max_heap(a)
-  for i in range(len(a)-1, 1, -1):
+  for i in range(len(a)-1, 1, -1):   #neverforget we have 42 as first element which we have to skip. so length - 1. OKAY?
     a[i], a[1] = a[1], a[i]
     heapsize -= 1
     heapify(a,1,heapsize)
@@ -31,10 +31,13 @@ def heapsort(a):
 if __name__ == '__main__':
   unsorted_array = [int(y) for y in input().split()]
 
-  sorted_array = [1]
+  sorted_array = [42]  #why you ask? to maintain 1 base index instead of 0 
 
   for x in unsorted_array:
     sorted_array.append(x)
 
   heapsort(sorted_array)
-  print("Sorted array = ", sorted_array)
+  sorted_array.pop(0)
+    
+  print("Unsorted array was ->", unsorted_array)
+  print("Sorted array -> ", sorted_array)
