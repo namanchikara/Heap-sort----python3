@@ -16,14 +16,9 @@ def heapify(arr,i,heapsize):
       heapify(arr, largest,heapsize)
 
 
-
-
 def build_max_heap(arr):
   for x in range(int(len(arr)/2), 0, -1):
     heapify(arr,x,len(arr))
-
-
-
 
 def heapsort(a):
   heapsize = len(a)
@@ -33,11 +28,13 @@ def heapsort(a):
     heapsize -= 1
     heapify(a,1,heapsize)
 
-
-
-
 if __name__ == '__main__':
-  x = int(input())
   unsorted_array = [int(y) for y in input().split()]
-  heapsort(unsorted_array)
-  print("Sorted array = ", unsorted_array)
+
+  sorted_array = [1]
+
+  for x in unsorted_array:
+    sorted_array.append(x)
+
+  heapsort(sorted_array)
+  print("Sorted array = ", sorted_array)
